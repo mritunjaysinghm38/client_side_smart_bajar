@@ -1,0 +1,200 @@
+/* Profile page – user header + one card per order */
+
+.pr-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pr-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 0.4rem;
+  background: rgba(255, 193, 7, 0.15);
+  border-radius: 50%;
+  color: #ffc107;
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pr-header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.pr-email {
+  margin: 0;
+  color: #9aa1a9;
+  overflow-wrap: anywhere;
+}
+
+.pr-section-title {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.pr-section-title small {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #9aa1a9;
+}
+
+.pr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ---------- Order card ---------- */
+.pr-card {
+  overflow: hidden;
+  background: #1b1e22;
+  color: #f1f3f5;
+  border: 1px solid #2c3036;
+  border-radius: 12px;
+}
+
+.pr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.85rem 1rem;
+  background: #22262b;
+  border-bottom: 1px solid #2c3036;
+}
+
+.pr-id {
+  min-width: 0;
+}
+
+.pr-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #9aa1a9;
+}
+
+.pr-id strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.pr-badge {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  background: #2c3036;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.pr-badge.is-paid {
+  background: rgba(62, 207, 142, 0.15);
+  color: #3ecf8e;
+}
+
+.pr-body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.pr-section {
+  min-width: 0;
+  padding: 1rem;
+}
+
+.pr-section + .pr-section {
+  border-top: 1px solid #2c3036;
+}
+
+.pr-section h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Detail rows: label above value on phones */
+.pr-rows {
+  margin: 0;
+}
+
+.pr-rows > div {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #2c3036;
+}
+
+.pr-rows > div:first-child {
+  padding-top: 0;
+}
+
+.pr-rows > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.pr-rows dt {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #9aa1a9;
+}
+
+.pr-rows dd {
+  margin: 0.1rem 0 0;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.pr-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #adb5bd;
+  border: 1px solid #2c3036;
+  border-radius: 10px;
+}
+
+/* ---------- Tablet: label and value on one line ---------- */
+@media (min-width: 576px) {
+  .pr-rows > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .pr-rows dd {
+    margin: 0;
+    text-align: right;
+  }
+}
+
+/* ---------- Desktop: items left, details right ---------- */
+@media (min-width: 992px) {
+  .pr-body {
+    grid-template-columns: 6fr 5fr;
+  }
+
+  .pr-section {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .pr-section + .pr-section {
+    border-top: 0;
+    border-left: 1px solid #2c3036;
+  }
+
+  .pr-head {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

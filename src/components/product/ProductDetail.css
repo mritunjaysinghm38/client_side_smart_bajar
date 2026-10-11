@@ -1,0 +1,118 @@
+/* Product detail page – dark card with the yellow accent your app already uses */
+
+.pd-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background: #1b1e22;
+  color: #f1f3f5;
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Image panel */
+.pd-media {
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #121417;
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+}
+
+.pd-media img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Info panel */
+.pd-category {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  border: 1px solid rgba(255, 193, 7, 0.6);
+  border-radius: 999px;
+  color: #ffc107;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.pd-title {
+  margin: 0.75rem 0 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.pd-price {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #ffc107;
+}
+
+.pd-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 1.25rem 0;
+  opacity: 1;
+}
+
+.pd-desc {
+  max-width: 60ch;
+  color: #ced4da;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Buttons */
+.pd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.pd-actions .btn {
+  flex: 1 1 140px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+}
+
+.pd-loading {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #ced4da;
+}
+
+/* ---------- Tablet and up: image left, details right ---------- */
+@media (min-width: 768px) {
+  .pd-card {
+    grid-template-columns: minmax(260px, 5fr) 7fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .pd-media {
+    margin-inline: 0;
+  }
+
+  .pd-actions .btn {
+    flex: 0 0 auto;
+    min-width: 170px;
+  }
+}
