@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import AppContext from "../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Address = () => {
   const { shippingAddress, userAddress } = useContext(AppContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     fullName: "",
     address: "",
@@ -40,7 +42,7 @@ const Address = () => {
 
     if (result.success) {
       // setReload(!reload)
-      navigate("/cheakout");
+      navigate("/cheakout", {state: location.state});
     }
     // console.log(formData)
     setFormData({

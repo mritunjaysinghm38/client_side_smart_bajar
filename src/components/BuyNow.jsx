@@ -46,14 +46,14 @@ const BuyNow = () => {
               type="button"
               aria-label="Decrease quantity"
               onClick={() => {
-                if(qty_2>=2){
-                setQty_2(() => {
-                  return qty_2 - 1;
-                });
-                setPrice(() => {
-                  return location.state.price * qty_2;
-                });
-              }
+                if (qty_2 >= 2) {
+                  setQty_2(() => {
+                    return qty_2 - 1;
+                  });
+                  setPrice(() => {
+                    return location.state.price * qty_2;
+                  });
+                }
               }}
             >
               <span className="material-symbols-outlined">remove</span>
@@ -68,7 +68,7 @@ const BuyNow = () => {
                   return qty_2 + 1;
                 });
                 setPrice(() => {
-                  return location.state.price * (qty_2+1);
+                  return location.state.price * (qty_2 + 1);
                 });
               }}
             >
@@ -87,7 +87,7 @@ const BuyNow = () => {
           <span>Total Price</span>
           <strong>{price}</strong>
         </div>
-      </div>      
+      </div>
 
       {/* Checkout actions */}
 
@@ -95,13 +95,13 @@ const BuyNow = () => {
         <button
           className="btn btn-warning"
           onClick={() =>
-            navigate("/cheakout", {
+            navigate("/shipping", {
               state: {
+                productId: location.state._id,
                 title: location.state.title,
+                price: price,
                 qty: qty_2,
-                price: location.state.price,
                 imgSrc: location.state.imgSrc,
-                category: location.state.category,
               },
             })
           }
