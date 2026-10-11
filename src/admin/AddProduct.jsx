@@ -75,7 +75,8 @@ const AddProduct = () => {
             <label htmlFor="exampleInputEmail144" className="form-label">
               description
             </label>
-            <input
+            <textarea 
+              rows="2"
               name="description"
               value={formData.description}
               onChange={onChangerHandler}
