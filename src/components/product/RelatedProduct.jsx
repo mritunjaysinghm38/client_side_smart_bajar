@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import "./show-product.css";
 
 const RelatedProduct = ({ category }) => {
-  const { products, addToCart } = useContext(AppContext);
+  const { products, addToCart, token, LoginFirst } = useContext(AppContext);
   const [relatedProduct, setRelatedProduct] = useState([]);
-   const [addedId, setAddedId] = useState(null);
- 
+  const [addedId, setAddedId] = useState(null);
+
   useEffect(() => {
     setRelatedProduct(
       products.filter(
@@ -18,7 +18,7 @@ const RelatedProduct = ({ category }) => {
     );
   }, [category, products]);
 
-    const handleAdd = (product) => {
+  const handleAdd = (product) => {
     addToCart(product._id, product.title, product.price, 1, product.imgSrc);
     setAddedId(product._id);
     setTimeout(() => setAddedId(null), 1200);
@@ -87,41 +87,47 @@ const RelatedProduct = ({ category }) => {
       </div> */}
 
       <div className="container py-3 py-md-4">
-            <div className="sp-grid">
-              {(!relatedProduct || relatedProduct.length === 0) && (
-                <div className="sp-empty">No products found.</div>
-              )}
-      
-              {relatedProduct?.map((product) => (
-                <div key={product._id} className="sp-card">
-                  <Link to={`/product/${product._id}`} className="sp-pic">
-                    <img src={product.imgSrc} alt={product.title} loading="lazy" />
-                  </Link>
-      
-                  <div className="sp-body">
-                    {product.category && (
-                      <span className="sp-category">{product.category}</span>
-                    )}
-      
-                    <h5 className="sp-title">
-                      <Link to={`/product/${product._id}`}>{product.title}</Link>
-                    </h5>
-      
-                    <p className="sp-price">
-                      ₹{Number(product.price).toLocaleString("en-IN")}
-                    </p>
-      
-                    <button
-                      className="btn btn-warning sp-btn"
-                      onClick={() => handleAdd(product)}
-                    >
-                      {addedId === product._id ? "Added" : "Add to cart"}
-                    </button>
-                  </div>
-                </div>
-              ))}
+        <div className="sp-grid">
+          {(!relatedProduct || relatedProduct.length === 0) && (
+            <div className="sp-empty">No products found.</div>
+          )}
+
+          {relatedProduct?.map((product) => (
+            <div key={product._id} className="sp-card">
+              <Link to={`/product/${product._id}`} className="sp-pic">
+                <img src={product.imgSrc} alt={product.title} loading="lazy" />
+              </Link>
+
+              <div className="sp-body">
+                {product.category && (
+                  <span className="sp-category">{product.category}</span>
+                )}
+
+                <h5 className="sp-title">
+                  <Link to={`/product/${product._id}`}>{product.title}</Link>
+                </h5>
+
+                <p className="sp-price">
+                  ₹{Number(product.price).toLocaleString("en-IN")}
+                </p>
+
+                <button
+                  className="btn btn-warning sp-btn"
+                  onClick={() => {
+                    if (token) {
+                      handleAdd(product);
+                    } else {
+                      LoginFirst();
+                    }
+                  }}
+                >
+                  {addedId === product._id ? "Added" : "Add to cart"}
+                </button>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 };

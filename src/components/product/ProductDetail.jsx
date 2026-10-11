@@ -161,7 +161,7 @@ const ProductDetail = () => {
                   <button
                     className="btn btn-warning"
                     onClick={() => {
-                      // if(token){
+                      if(token){
                       addToCart(
                         product._id,
                         product.title,
@@ -170,9 +170,9 @@ const ProductDetail = () => {
                         product.imgSrc,
                       );
                       handleAdd(product);
-                    // }else{
-                    //   LoginFirst()
-                    // }
+                    }else{
+                      LoginFirst()
+                    }
                     }}
                   >
                     <span className="material-symbols-outlined">

@@ -4,7 +4,6 @@
 
 // const ShowProduct = () => {
 //   const { products, filteredData, addToCart } = useContext(AppContext);
-  
 
 //   return (
 //     <>
@@ -18,7 +17,7 @@
 //               <div
 //                 className="card bg-dark text-light text-center"
 //                 style={{ width: "18rem" }}
-//               > 
+//               >
 //                 <Link
 //                   to={`/product/${product._id}`}
 //                   className="d-flex justify-content-center align-items-center p-3"
@@ -84,26 +83,13 @@
 
 // export default ShowProduct;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import "./show-product.css";
 
 const ShowProduct = () => {
-  const { filteredData, addToCart } = useContext(AppContext);
+  const { filteredData, addToCart, token, LoginFirst } = useContext(AppContext);
 
   // shows "Added" on the button for a moment after adding
   const [addedId, setAddedId] = useState(null);
@@ -142,7 +128,13 @@ const ShowProduct = () => {
 
               <button
                 className="btn btn-warning sp-btn"
-                onClick={() => handleAdd(product)}
+                onClick={() => {
+                  if (token) {
+                    handleAdd(product);
+                  } else {
+                    LoginFirst();
+                  }
+                }}
               >
                 {addedId === product._id ? "Added" : "Add to cart"}
               </button>
