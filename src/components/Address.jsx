@@ -14,7 +14,6 @@ const Address = () => {
     country: "",
     pincode: "",
     phoneNumber: "",
-    city: "",
   });
 
   const onChangerHandler = (e) => {

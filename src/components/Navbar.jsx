@@ -401,7 +401,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import AppContext from "../context/AppContext";
-import "./navbar.css";
+import "./Navbar.css";
 
 const ADMIN_PATHS = [
   "/admin",
