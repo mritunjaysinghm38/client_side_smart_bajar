@@ -104,7 +104,7 @@ const ShowProduct = () => {
     <div className="container py-3 py-md-4">
       <div className="sp-grid">
         {(!filteredData || filteredData.length === 0) && (
-          <div className="sp-empty">No products found.</div>
+          <div className="sp-empty">Loading product...</div>
         )}
 
         {filteredData?.map((product) => (

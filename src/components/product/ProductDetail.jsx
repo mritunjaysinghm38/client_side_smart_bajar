@@ -104,7 +104,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" }); // 👈 add this
+    window.scrollTo({ top: 0, behavior: "instant" }); // 👈 add this
 
     const fetchProduct = async () => {
       const api = await axios.get(`${url}/product/${id}`, {
