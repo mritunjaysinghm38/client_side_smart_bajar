@@ -5,8 +5,8 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AppState = (props) => {
-  // const url = "http://localhost:4000/api";
-  const url = "https://mern-smart-bajar-api.onrender.com/api";
+  const url = "http://localhost:4000/api";
+  // const url = "https://mern-smart-bajar-api.onrender.com/api";
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);

@@ -30,19 +30,37 @@
 }
 
 /* Image */
+/* Image */
+/* Image area: flexes with the image, but within limits */
 .sp-pic {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;
-  padding: 1rem;
+  flex: 1;
+  min-height: 140px;
+  padding: 0.75rem;
   background: #fff;
+  overflow: hidden;        /* safety net: nothing can ever poke out of the box */
 }
 
 .sp-pic img {
-  max-width: 100%;
-  max-height: 100%;
+  display: block;
+  width: auto;             /* was 100% - this is what caused the overflow */
+  height: auto;
+  max-width: 100%;         /* never wider than the box */
+  max-height: 200px;       /* never taller than this */
+  min-width: 0;            /* lets flex shrink the image instead of overflowing */
   object-fit: contain;
+}
+
+@media (min-width: 576px) {
+  .sp-pic {
+    min-height: 180px;
+    padding: 1rem;
+  }
+  .sp-pic img {
+    max-height: 280px;
+  }
 }
 
 /* Text */
