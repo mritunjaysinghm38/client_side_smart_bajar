@@ -413,11 +413,11 @@ const ADMIN_PATHS = [
 
 const CATEGORY_FILTERS = [
   { label: "All", type: "all" },
-  { label: "Mobile", type: "category", value: "mobiles" },
-  { label: "Laptops", type: "category", value: "laptop" },
-  { label: "Camera", type: "category", value: "camara" },
-  { label: "Headphones", type: "category", value: "Headphone" },
-  { label: "Watches", type: "category", value: "watch" },
+  { label: "Mobile", type: "category", value: "mobile" },
+  { label: "Laptop", type: "category", value: "laptop" },
+  { label: "Camera", type: "category", value: "camera" },
+  { label: "Headphone", type: "category", value: "Headphone" },
+  { label: "Watch", type: "category", value: "watch" },
 ];
 
 const PRICE_FILTERS = [
