@@ -413,9 +413,9 @@ const ADMIN_PATHS = [
 
 const CATEGORY_FILTERS = [
   { label: "All", type: "all" },
-  { label: "Mobiles", type: "category", value: "mobiles" },
+  { label: "Mobile", type: "category", value: "mobiles" },
   { label: "Laptops", type: "category", value: "laptop" },
-  { label: "Camara", type: "category", value: "camara" },
+  { label: "Camera", type: "category", value: "camara" },
   { label: "Headphones", type: "category", value: "Headphone" },
   { label: "Watches", type: "category", value: "watch" },
 ];
